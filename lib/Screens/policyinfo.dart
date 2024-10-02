@@ -166,7 +166,7 @@ class _PolicyinfoState extends State<Policyinfo> {
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildPolicyTile('Customer Surname', policyData['surname']),
+              _buildPolicyTile('Customer Name', policyData['surname']),
               _buildPolicyTile(
                   'Customer Identity Card Number', policyData['nic']),
               _buildPolicyTile('Vehicle Number', policyData['riskname']),

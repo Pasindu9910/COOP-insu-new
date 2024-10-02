@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // To make phone calls
+import 'package:url_launcher/url_launcher.dart';
 
 class AccidentReport extends StatefulWidget {
   const AccidentReport({super.key});
@@ -12,30 +12,28 @@ class AccidentReport extends StatefulWidget {
 
 class _AccidentReportState extends State<AccidentReport>
     with SingleTickerProviderStateMixin {
-  
   late AnimationController _animationController;
   late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-    // Initialize the AnimationController
+
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
-    )..repeat(reverse: true); // Repeat animation in reverse direction
+    )..repeat(reverse: true);
 
-    // Define the animation as a scaling effect between 0.95 and 1.05
-    _animation = Tween<double>(begin: 0.95, end: 1.05).animate(_animationController);
+    _animation =
+        Tween<double>(begin: 0.95, end: 1.05).animate(_animationController);
   }
 
   @override
   void dispose() {
-    _animationController.dispose(); // Dispose the animation controller to free resources
+    _animationController.dispose();
     super.dispose();
   }
 
-  // Function to make a phone call
   Future<void> _makePhoneCall(String phoneNumber) async {
     final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
     if (await canLaunchUrl(phoneUri)) {
@@ -70,79 +68,108 @@ class _AccidentReportState extends State<AccidentReport>
                 ),
               ),
             ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Add the text above the buttons
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 20.0), // Add some space between the text and the buttons
-                    child: Text(
-                      'Click to get connected with call center',
-                      style: TextStyle(
-                        color: Colors.white, // White font color
-                        fontSize: 20, // Font size of 20px
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center, // Center-align the text
+            Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(
+                      top: 60.0, bottom: 20.0), // Move text 10px below AppBar
+                  child: Text(
+                    'Click to get connected with call center',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  
-                  // First button with pulsing image
-                  ScaleTransition(
-                    scale: _animation,
-                    child: InkWell(
-                      onTap: () => _makePhoneCall('0117440033'),
-                      child: Image.asset(
-                        'assets/callus.png', // Add your image here
-                        width: 250,
-                        height: 250,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  // Second button with pulsing image
-                  ScaleTransition(
-                    scale: _animation,
-                    child: InkWell(
-                      onTap: () => _makePhoneCall('0112440033'),
-                      child: Image.asset(
-                        'assets/callus.png', // Add your image here
-                        width: 250,
-                        height: 250,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 40), // Space between the call buttons and the onsite button
-                  // Onsite Inspections button
-                  SizedBox(
-                    width: 250,
-                    height: 60,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+                ),
+                const SizedBox(
+                    height: 80), // Space between text and phone icons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ScaleTransition(
+                      scale: _animation,
+                      child: InkWell(
+                        onTap: () => _makePhoneCall('0117440033'),
+                        child: Image.asset(
+                          'assets/callus.png',
+                          width: 150,
+                          height: 150,
                         ),
-                        backgroundColor: Colors.purple, // Set the button color to purple
-                        elevation: 10,
-                        shadowColor: Colors.grey,
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/onsite');
-                      },
+                    ),
+                    const SizedBox(width: 30), // Space between image and text
+                    TextButton(
+                      onPressed: () => _makePhoneCall('0117440033'),
                       child: const Text(
-                        'Onsite Inspections',
+                        '011-7440033',
                         style: TextStyle(
-                          fontFamily: 'Georgia',
-                          fontSize: 22,
+                          color: Colors.white,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white, // Set the text color to white
                         ),
                       ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 20), // Space between the two phone icons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ScaleTransition(
+                      scale: _animation,
+                      child: InkWell(
+                        onTap: () => _makePhoneCall('0112440033'),
+                        child: Image.asset(
+                          'assets/callus.png',
+                          width: 150,
+                          height: 150,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    TextButton(
+                      onPressed: () => _makePhoneCall('0112440033'),
+                      child: const Text(
+                        '011-2440033',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 80), // More space before the button
+                SizedBox(
+                  width: 250,
+                  height: 60,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      backgroundColor: Colors.purple,
+                      elevation: 10,
+                      shadowColor: Colors.grey,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/onsite');
+                    },
+                    child: const Text(
+                      'Onsite Inspections',
+                      style: TextStyle(
+                        fontFamily: 'Georgia',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
