@@ -68,8 +68,7 @@ class _AccidentReportState extends State<AccidentReport>
             Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(
-                      top: 40.0, bottom: 20.0), // Move text 10px below AppBar
+                  padding: EdgeInsets.only(top: 40.0, bottom: 20.0),
                   child: Text(
                     'Click to get connected with call center',
                     style: TextStyle(
@@ -80,16 +79,14 @@ class _AccidentReportState extends State<AccidentReport>
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(
-                    height: 70), // Space between text and phone icons
+                const SizedBox(height: 70),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ScaleTransition(
                       scale: _animation,
                       child: InkWell(
-                        onTap: () => _makePhoneCall(
-                            '0117440033'), // Call action for the icon
+                        onTap: () => _makePhoneCall('0117440033'),
                         child: Image.asset(
                           'assets/callus.png',
                           width: 150,
@@ -97,9 +94,9 @@ class _AccidentReportState extends State<AccidentReport>
                         ),
                       ),
                     ),
-                    const SizedBox(width: 30), // Space between image and text
+                    const SizedBox(width: 30),
                     const Text(
-                      '0117440033', // Only displays the phone number, no tap action
+                      '0117440033',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -108,15 +105,14 @@ class _AccidentReportState extends State<AccidentReport>
                     ),
                   ],
                 ),
-                const SizedBox(height: 20), // Space between the two phone icons
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ScaleTransition(
                       scale: _animation,
                       child: InkWell(
-                        onTap: () => _makePhoneCall(
-                            '0112440033'), // Call action for the icon
+                        onTap: () => _makePhoneCall('0112440033'),
                         child: Image.asset(
                           'assets/callus.png',
                           width: 150,
@@ -126,7 +122,7 @@ class _AccidentReportState extends State<AccidentReport>
                     ),
                     const SizedBox(width: 20),
                     const Text(
-                      '0112440033', // Only displays the phone number, no tap action
+                      '0112440033',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -135,7 +131,7 @@ class _AccidentReportState extends State<AccidentReport>
                     ),
                   ],
                 ),
-                const SizedBox(height: 40), // More space before the button
+                const SizedBox(height: 40),
                 SizedBox(
                   width: 250,
                   height: 60,
