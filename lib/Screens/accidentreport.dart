@@ -71,8 +71,7 @@ class _AccidentReportState extends State<AccidentReport>
             Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(
-                      top: 60.0, bottom: 20.0), // Move text 10px below AppBar
+                  padding: EdgeInsets.only(top: 60.0, bottom: 20.0),
                   child: Text(
                     'Click to get connected with call center',
                     style: TextStyle(
@@ -83,8 +82,7 @@ class _AccidentReportState extends State<AccidentReport>
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(
-                    height: 80), // Space between text and phone icons
+                const SizedBox(height: 80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -99,7 +97,7 @@ class _AccidentReportState extends State<AccidentReport>
                         ),
                       ),
                     ),
-                    const SizedBox(width: 30), // Space between image and text
+                    const SizedBox(width: 30),
                     TextButton(
                       onPressed: () => _makePhoneCall('0117440033'),
                       child: const Text(
@@ -113,7 +111,7 @@ class _AccidentReportState extends State<AccidentReport>
                     ),
                   ],
                 ),
-                const SizedBox(height: 20), // Space between the two phone icons
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -142,7 +140,7 @@ class _AccidentReportState extends State<AccidentReport>
                     ),
                   ],
                 ),
-                const SizedBox(height: 80), // More space before the button
+                const SizedBox(height: 80),
                 SizedBox(
                   width: 250,
                   height: 60,
