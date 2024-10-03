@@ -21,6 +21,20 @@ class _ChangePasswordState extends State<ChangePassword> {
   bool _isLoading = false;
   String? _errorMessage;
 
+  late Future<void> _imageLoadFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    // Load the image asynchronously
+    _imageLoadFuture = _loadImage();
+  }
+
+  Future<void> _loadImage() async {
+    // This will ensure the image is loaded completely before display
+    await precacheImage(const AssetImage('assets/change.png'), context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +55,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/background2.png'),
+                  image: AssetImage('assets/background3.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -55,13 +69,26 @@ class _ChangePasswordState extends State<ChangePassword> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.asset(
-                            'assets/change.png',
-                            height: 200,
-                            width: 200,
-                          ),
+                        // Use FutureBuilder to handle the image loading asynchronously
+                        FutureBuilder(
+                          future: _imageLoadFuture,
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(100),
+                                child: Image.asset(
+                                  'assets/change.png',
+                                  height: 200,
+                                  width: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              );
+                            } else {
+                              // Show a loading indicator while the image is loading
+                              return const CircularProgressIndicator();
+                            }
+                          },
                         ),
                         const SizedBox(height: 40),
                         TextFormField(

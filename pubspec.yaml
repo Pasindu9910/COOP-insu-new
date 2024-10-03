@@ -112,6 +112,7 @@ flutter:
     - assets/quote.png
     - assets/customer.png
     - assets/callus.png
+    - assets/background3.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
