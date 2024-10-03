@@ -56,15 +56,14 @@ class _ChangePasswordState extends State<ChangePassword> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(75),
+                          borderRadius: BorderRadius.circular(100),
                           child: Image.asset(
-                            'assets/change.jpg',
-                            height: 150,
-                            width: 150,
-                            fit: BoxFit.cover,
+                            'assets/change.png',
+                            height: 200,
+                            width: 200,
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 40),
                         TextFormField(
                           controller: _nicController,
                           decoration: const InputDecoration(
