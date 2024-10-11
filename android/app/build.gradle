@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.coop.customer_portal"
+    namespace = "com.example.customer_portal"
     compileSdk = flutter.targetSdkVersion
     ndkVersion = flutter.ndkVersion
 
