@@ -271,7 +271,6 @@ class _LoginPageState extends State<LoginPage> {
         );
       }
     } on TimeoutException catch (_) {
-      // Handle timeout error
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('An error occurred, please try again later')),

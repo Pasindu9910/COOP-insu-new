@@ -409,7 +409,6 @@ class _OnsiteInspectionState extends State<OnsiteInspection> {
           final response = await request.send();
 
           if (response.statusCode == 200) {
-            print('$buttonName image sent successfully!');
           } else {
             _showErrorDialog('Failed to send $buttonName image.');
           }

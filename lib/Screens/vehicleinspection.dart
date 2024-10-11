@@ -332,8 +332,6 @@ class _VehicleInspecState extends State<VehicleInspec> {
           _capturedPhotos[buttonText] = imageFile;
         });
       }
-    } catch (e) {
-      print('Error picking image: $e');
     } finally {
       await SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
@@ -409,7 +407,6 @@ class _VehicleInspecState extends State<VehicleInspec> {
           final response = await request.send();
 
           if (response.statusCode == 200) {
-            print('$buttonName image sent successfully!');
           } else {
             _showErrorDialog('Failed to send $buttonName image.');
           }

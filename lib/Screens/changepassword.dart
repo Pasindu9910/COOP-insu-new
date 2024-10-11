@@ -220,8 +220,6 @@ class _ChangePasswordState extends State<ChangePassword> {
               body: jsonEncode(updatedCustomer),
             );
 
-            print(passwordResponse.body);
-
             if (passwordResponse.statusCode == 200) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Password changed successfully!')),
@@ -229,8 +227,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               Navigator.pushReplacementNamed(context, '/Login');
             } else {
               setState(() {
-                _errorMessage =
-                    'Failed to change password. Error: ${passwordResponse.statusCode}';
+                _errorMessage = 'Failed to change password.';
               });
             }
           } else {
@@ -245,13 +242,12 @@ class _ChangePasswordState extends State<ChangePassword> {
         }
       } else {
         setState(() {
-          _errorMessage =
-              'Customer not found. Error: ${customerResponse.statusCode}';
+          _errorMessage = 'Customer not found.';
         });
       }
     } catch (error) {
       setState(() {
-        _errorMessage = 'An error occurred: $error';
+        _errorMessage = 'An error occurred';
       });
     } finally {
       setState(() {

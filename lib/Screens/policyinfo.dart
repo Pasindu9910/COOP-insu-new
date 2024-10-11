@@ -38,7 +38,6 @@ class _PolicyinfoState extends State<Policyinfo> {
       final response = await http.get(apiUrl);
 
       if (response.statusCode == 200) {
-        print('Policy info fetched successfully');
         final List<dynamic> jsonResponse = jsonDecode(response.body);
         setState(() {
           _policyList =
@@ -49,9 +48,7 @@ class _PolicyinfoState extends State<Policyinfo> {
         throw Exception(
             'Failed to load policy info, status code: ${response.statusCode}');
       }
-    } catch (e, stackTrace) {
-      print('Error fetching policy info: $e');
-      print('Stack trace: $stackTrace');
+    } catch (e) {
       setState(() {
         _policyList = [];
         _filteredPolicyList = [];

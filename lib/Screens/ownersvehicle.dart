@@ -73,9 +73,7 @@ class _OwnervehicleState extends State<Ownervehicle> {
         throw Exception(
             'Failed to load vehicles, status code: ${response.statusCode}');
       }
-    } catch (e, stackTrace) {
-      print('Error fetching vehicles: $e');
-      print('Stack trace: $stackTrace');
+    } catch (e) {
       setState(() {
         _isVehiclesLoaded = false;
         _vehicleList = [];
