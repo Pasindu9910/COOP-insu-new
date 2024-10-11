@@ -44,7 +44,7 @@ class _DecisionState extends State<Decision> with TickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Are you currently one of our valued customers?',
+                      'Are you an existing customers?',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
