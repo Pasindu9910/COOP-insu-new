@@ -372,7 +372,7 @@ class _RegisterpageState extends State<Registerpage> {
                                     if (_formKey.currentState!.validate()) {
                                       final nic = nationalID.text;
                                       final Uri checkNicUrl = Uri.parse(
-                                          'http://116.12.80.92:9010/api/v3/getBynic/$nic');
+                                          'http://124.43.209.68:9010/api/v3/getBynic/$nic');
 
                                       try {
                                         final checkResponse =
@@ -405,7 +405,7 @@ class _RegisterpageState extends State<Registerpage> {
                                             };
 
                                             final Uri apiUrl = Uri.parse(
-                                                'http://116.12.80.92:9010/api/v3/saveOldCustomer');
+                                                'http://124.43.209.68:9010/api/v3/saveOldCustomer');
                                             final response = await http.post(
                                               apiUrl,
                                               headers: {

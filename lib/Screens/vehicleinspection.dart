@@ -398,7 +398,7 @@ class _VehicleInspecState extends State<VehicleInspec> {
         if (file != null) {
           final request = http.MultipartRequest(
             'POST',
-            Uri.parse('http://116.12.80.92:9000/api/v1/upload'),
+            Uri.parse('http://124.43.209.68:9000/api/v1/upload'),
           );
 
           request.files

@@ -207,76 +207,76 @@ class _OnsiteInspectionState extends State<OnsiteInspection> {
   }
 
   Column _buildColumnWithButtons(
-    List<String> buttonTexts, List<VoidCallback?> onPressedFunctions) {
-  List<Widget> buttonsWithSpacing = [];
-  for (int i = 0; i < buttonTexts.length; i++) {
-    buttonsWithSpacing.add(
-      _buildElevatedButton(buttonTexts[i], null), // Disable the button
-    );
-    if (i < buttonTexts.length - 1) {
-      buttonsWithSpacing.add(SizedBox(height: spacing));
+      List<String> buttonTexts, List<VoidCallback?> onPressedFunctions) {
+    List<Widget> buttonsWithSpacing = [];
+    for (int i = 0; i < buttonTexts.length; i++) {
+      buttonsWithSpacing.add(
+        _buildElevatedButton(buttonTexts[i], null), // Disable the button
+      );
+      if (i < buttonTexts.length - 1) {
+        buttonsWithSpacing.add(SizedBox(height: spacing));
+      }
     }
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: buttonsWithSpacing);
   }
-  return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: buttonsWithSpacing);
-}
 
   ElevatedButton _buildElevatedButton(String text, VoidCallback? onPressed) {
-  final Map<String, String> buttonImages = {
-    'Front Photo': 'assets/front1.png',
-    'Left side\nPhoto': 'assets/left.png',
-    'Front NIC Photo': 'assets/ID.png',
-    'License Photo': 'assets/lis.png',
-    'Back Photo': 'assets/back.png',
-    'Right side\nPhoto': 'assets/right.png',
-    'Back NIC Photo': 'assets/IDback.png',
-    'Vehicle Book\nPhoto': 'assets/book.png',
-    'Deletion Letter': 'assets/letter.png',
-    'Chassi Number': 'assets/chassi.png',
-    'Meter Reader': 'assets/meter.png',
-    'Wind Screen\nLabel': 'assets/wind.png',
-    'Left Back\nCorner': 'assets/back_Left.png',
-    'Right Back\nCorner': 'assets/back_Right.png',
-    'Right Front\nCorner': 'assets/front_Right.png',
-    'Left Front\nCorner': 'assets/front_Left.png',
-  };
+    final Map<String, String> buttonImages = {
+      'Front Photo': 'assets/front1.png',
+      'Left side\nPhoto': 'assets/left.png',
+      'Front NIC Photo': 'assets/ID.png',
+      'License Photo': 'assets/lis.png',
+      'Back Photo': 'assets/back.png',
+      'Right side\nPhoto': 'assets/right.png',
+      'Back NIC Photo': 'assets/IDback.png',
+      'Vehicle Book\nPhoto': 'assets/book.png',
+      'Deletion Letter': 'assets/letter.png',
+      'Chassi Number': 'assets/chassi.png',
+      'Meter Reader': 'assets/meter.png',
+      'Wind Screen\nLabel': 'assets/wind.png',
+      'Left Back\nCorner': 'assets/back_Left.png',
+      'Right Back\nCorner': 'assets/back_Right.png',
+      'Right Front\nCorner': 'assets/front_Right.png',
+      'Left Front\nCorner': 'assets/front_Left.png',
+    };
 
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-      fixedSize: Size(buttonWidth, buttonHeight),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: BorderSide(width: 3, color: Colors.black),
-      ),
-      backgroundColor: _buttonColors[text] ?? Colors.white,
-      elevation: 10,
-      shadowColor: Color.fromARGB(255, 0, 0, 0),
-    ),
-    onPressed: null, // Disable button
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (buttonImages.containsKey(text))
-          Image.asset(
-            buttonImages[text]!,
-            height: 50,
-            fit: BoxFit.cover,
-          ),
-        SizedBox(height: 3),
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: fontSize,
-            color: Colors.black,
-            fontFamily: 'Georgia',
-          ),
-          textAlign: TextAlign.center,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(buttonWidth, buttonHeight),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: BorderSide(width: 3, color: Colors.black),
         ),
-      ],
-    ),
-  );
-}
+        backgroundColor: _buttonColors[text] ?? Colors.white,
+        elevation: 10,
+        shadowColor: Color.fromARGB(255, 0, 0, 0),
+      ),
+      onPressed: null, // Disable button
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (buttonImages.containsKey(text))
+            Image.asset(
+              buttonImages[text]!,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          SizedBox(height: 3),
+          Text(
+            text,
+            style: TextStyle(
+              fontSize: fontSize,
+              color: Colors.black,
+              fontFamily: 'Georgia',
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
 
   Future<void> _openCamera(String buttonText) async {
     if (_capturedPhotos[buttonText] != null) {
@@ -398,7 +398,7 @@ class _OnsiteInspectionState extends State<OnsiteInspection> {
         if (file != null) {
           final request = http.MultipartRequest(
             'POST',
-            Uri.parse('http://116.12.80.92:9000/api/v1/upload'),
+            Uri.parse('http://124.43.209.68:9000/api/v1/upload'),
           );
 
           request.files
@@ -443,7 +443,6 @@ class _OnsiteInspectionState extends State<OnsiteInspection> {
     });
   }
 }
-
 
 void _showProgressPopup(BuildContext context) {
   showDialog(

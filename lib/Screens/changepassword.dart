@@ -188,8 +188,8 @@ class _ChangePasswordState extends State<ChangePassword> {
     });
 
     final customerCheckUrl =
-        'http://116.12.80.92:9010/api/v3/getBynic/$nicNumber';
-    final passwordResetUrl = 'http://116.12.80.92:9010/api/v3/updatecustomer';
+        'http://124.43.209.68:9010/api/v3/getBynic/$nicNumber';
+    final passwordResetUrl = 'http://124.43.209.68:9010/api/v3/updatecustomer';
     final headers = {'Content-Type': 'application/json'};
 
     try {

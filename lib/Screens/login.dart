@@ -214,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
     final String password = _passwordController.text;
 
     final Uri apiUrl =
-        Uri.parse('http://116.12.80.92:9010/api/v3/getBynic/$idNumber');
+        Uri.parse('http://124.43.209.68:9010/api/v3/getBynic/$idNumber');
 
     try {
       final response =

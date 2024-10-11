@@ -54,7 +54,7 @@ class _VehicleDetailsState extends State<VehicleDetails> {
 
       try {
         final Uri apiUrl =
-            Uri.parse('http://116.12.80.92:9010/api/v2/saveuser');
+            Uri.parse('http://124.43.209.68:9010/api/v2/saveuser');
         final response = await http.post(
           apiUrl,
           headers: {
@@ -145,8 +145,8 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                             children: [
                               _buildTextField('Your Name',
                                   customerNameController, screenWidth),
-                              _buildTextField('Your NIC',
-                                  customerNICController, screenWidth,
+                              _buildTextField('Your NIC', customerNICController,
+                                  screenWidth,
                                   keyboardType: TextInputType.text,
                                   inputFormatter: [
                                     FilteringTextInputFormatter.allow(
@@ -161,11 +161,12 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                                   hintText: 'E.g. 0714563782',
                                   hintStyle: TextStyle(color: Colors.white54)),
                               _buildTextField('Vehicle Make',
-                                  vehicleNameController, screenWidth,hintText: 'E.g. Toyota',
+                                  vehicleNameController, screenWidth,
+                                  hintText: 'E.g. Toyota',
                                   hintStyle: TextStyle(color: Colors.white54)),
                               _buildTextField('Vehicle Number',
-                                  vehicleNumberController, 
-                                  screenWidth,hintText: 'E.g. NW CBB-1226 or CBB 1226',
+                                  vehicleNumberController, screenWidth,
+                                  hintText: 'E.g. NW CBB-1226 or CBB 1226',
                                   hintStyle: TextStyle(color: Colors.white54)),
                               _buildTextField('Vehicle Model',
                                   vehicleModelController, screenWidth,
@@ -253,13 +254,14 @@ class _VehicleDetailsState extends State<VehicleDetails> {
             }
           }
           if (label == 'Vehicle Number') {
-             if (!RegExp(r'^[A-Z]{1,2}\s?[A-Z]{2,3}\s?-?\s?\d{4}$').hasMatch(value)) {
-                  return 'Please enter a valid vehicle number (e.g., NW CBB-1226 or CBB 1226)';
+            if (!RegExp(r'^[A-Z]{1,2}\s?[A-Z]{2,3}\s?-?\s?\d{4}$')
+                .hasMatch(value)) {
+              return 'Please enter a valid vehicle number (e.g., NW CBB-1226 or CBB 1226)';
             }
           }
           if (label == 'Your Mobile Number') {
-             if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
-                  return 'Please enter a valid mobile number (10 digits)';
+            if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+              return 'Please enter a valid mobile number (10 digits)';
             }
           }
           return null;

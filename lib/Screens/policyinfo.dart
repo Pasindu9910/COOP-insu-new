@@ -34,7 +34,7 @@ class _PolicyinfoState extends State<Policyinfo> {
   Future<void> _fetchPolicyInfo() async {
     try {
       final Uri apiUrl = Uri.parse(
-          'http://116.12.80.92:9000/api/v1/getuserbyid/${widget.nicNumber}');
+          'http://124.43.209.68:9000/api/v1/getuserbyid/${widget.nicNumber}');
       final response = await http.get(apiUrl);
 
       if (response.statusCode == 200) {
